@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: load
+  labels:
+    app: load
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: load
+  template:
+    metadata:
+      labels:
+        app: load
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+        - name: load
+          image: busybox
+          command: ["/bin/sh","-c","while sleep 0.01; do wget -q -O /dev/null --no-check-certificate https://fuck.loopset.net; done"]
+          resources:
+                requests:
+                  cpu: 20m
+                  memory: 15Mi

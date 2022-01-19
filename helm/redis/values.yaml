@@ -1,0 +1,9 @@
+redis:
+  architecture: standalone
+  auth:
+    enabled: false
+  fullnameOverride: redis
+  master:
+    containerSecurityContext:
+      enabled: true
+      runAsUser: 1000

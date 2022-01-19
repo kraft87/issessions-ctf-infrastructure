@@ -1,0 +1,19 @@
+istiod:
+  sidecarInjectorWebhook:
+    enableNamespacesByDefault: true
+  meshConfig:
+    ingressService: istio-ingress
+    ingressSelector: ingress
+    #accessLogFile: /dev/stdout
+  pilot:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 512Mi
+  global:
+    tag: 1.12.1
+    proxy:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 128Mi

@@ -1,0 +1,8 @@
+apiVersion: v2
+name: ctfd
+version: 0.1.0
+appVersion: 3.3.0
+dependencies:
+- name: mariadb
+  version: 9.7.0
+  repository: https://charts.bitnami.com/bitnami

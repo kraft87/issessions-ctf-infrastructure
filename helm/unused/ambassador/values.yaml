@@ -1,0 +1,68 @@
+edge-stack:  
+  emissary-ingress:
+    envRaw: ""
+    # envRaw: |
+    #   - name: REDIS_URL
+    #     value: redis-master.redis:6379
+    #   {{- if and .Values.licenseKey.secretName }}
+    #   - name: AMBASSADOR_AES_SECRET_NAME
+    #     value: {{ .Values.licenseKey.secretName }}
+    #   {{- end }}
+    #image:
+      #tag: 2.0.5
+    createDefaultListeners: true
+    service:
+      externalTrafficPolicy: Local
+      ports:
+      - name: http
+        port: 80
+        targetPort: 8080
+      - name: https
+        port: 443
+        targetPort: 8443
+      # - name: nsjail
+      #   port: 9000
+      #   targetPort: 9000
+      #   protocol: TCP
+    resolvers:
+      endpoint:
+        create: true
+        name: endpoint
+    replicaCount: 1
+    autoscaling:
+      enabled: true
+      minReplicas: 1
+      metrics:
+      - type: Resource
+        resource:
+          name: cpu
+          target:
+            type: Utilization
+            averageUtilization: 80
+    agent:
+      enabled: false    
+    podAnnotations:
+      traffic.sidecar.istio.io/includeInboundPorts: ""
+      traffic.sidecar.istio.io/includeOutboundPorts: "6379"
+      traffic.sidecar.istio.io/includeOutboundIPRanges: ""
+      proxy.istio.io/config: |
+        proxyMetadata:
+          OUTPUT_CERTS: /etc/istio-certs
+      sidecar.istio.io/userVolumeMount: '[{"name": "istio-certs", "mountPath": "/etc/istio-certs"}]'       
+    volumes:
+    - emptyDir:
+        medium: Memory
+      name: istio-certs
+    volumeMounts:
+    - name: istio-certs
+      mountPath: /etc/istio-certs/
+      readOnly: true
+    env:
+      AMBASSADOR_ISTIO_SECRET_DIR: /etc/istio-certs
+      AMBASSADOR_ENVOY_BASE_ID: "1"
+      REDIS_URL: redis-master.redis:6379
+  rateLimit:
+    create: false 
+  createDevPortalMappings: false
+  redis:
+    create: false

@@ -1,0 +1,17 @@
+cert-manager:
+  #installCRDs: true
+  startupapicheck:
+    podLabels: 
+      sidecar.istio.io/inject: "false"
+  resources:
+    requests:
+      cpu: 10m
+      memory: 32Mi
+  webhook:
+    requests:
+      cpu: 10m
+      memory: 32Mi
+  cainjector:
+    requests:
+      cpu: 10m
+      memory: 32Mi

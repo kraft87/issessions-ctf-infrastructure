@@ -1,0 +1,20 @@
+- hosts: localhost
+  tasks:
+  - name: create certs folder
+    ansible.builtin.file:
+      path: ./certs
+      state: directory
+      mode: '0755'
+  - name: create CA certs
+    command: >
+      step certificate create root.linkerd.cluster.local ca.crt ca.key
+      --profile root-ca --no-password --insecure
+    args:
+      chdir: ./certs
+  - name: create Issuer certs
+    command: >
+      step certificate create identity.linkerd.cluster.local issuer.crt issuer.key
+      --profile intermediate-ca --not-after 8760h --no-password --insecure
+      --ca ca.crt --ca-key ca.key
+    args:
+      chdir: ./certs

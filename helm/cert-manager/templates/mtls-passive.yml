@@ -1,0 +1,9 @@
+# not sure if this is required, but it's too late to test
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: cert-manager-passive
+  namespace: cert-manager
+spec:
+  mtls:
+    mode: PERMISSIVE

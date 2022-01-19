@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: wg
+spec:
+  hosts:
+  - vpn.loopset.net
+  gateways:
+  - wg
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        port:
+          number: 80
+        host: wireguard-wg-access-server-web

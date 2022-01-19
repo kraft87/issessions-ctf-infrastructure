@@ -1,0 +1,5 @@
+linkerd2:
+  #policyController:
+  #  defaultAllowPolicy: all-authenticated
+  webhookFailurePolicy: Fail
+  #installNamespace: false

@@ -1,0 +1,7 @@
+apiVersion: getambassador.io/v3alpha1
+kind: RateLimitService
+metadata:
+  name: ratelimit
+spec:
+  service: ratelimit.ratelimit:8081
+  protocol_version: v3

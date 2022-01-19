@@ -1,0 +1,16 @@
+apiVersion: getambassador.io/v3alpha1
+kind:  Module
+metadata:
+  name:  ambassador
+spec:
+  config:
+    load_balancer:
+      policy: least_request
+    default_labels:
+      ambassador:
+        defaults:
+        - remote_address:
+            key: remote_address
+        - request_headers:
+            header_name: host
+            key: host

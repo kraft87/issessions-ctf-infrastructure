@@ -1,0 +1,19 @@
+- name: Install Helm Charts
+  hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: "Install Charts"
+    kubernetes.core.helm:
+      name: "{{ item }}"
+      chart_ref: "../helm/{{ item }}"
+      namespace: "{{ item }}"
+      create_namespace: yes
+      atomic: yes
+      state: present
+    loop:
+     - istio-system
+     - redis
+     - ratelimit
+     - ambassador
+     - ctfd
+     - elastic

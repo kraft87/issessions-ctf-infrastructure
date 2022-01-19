@@ -1,0 +1,8 @@
+apiVersion: v2
+name: ambassador
+version: 0.1.0
+appVersion: 2.1.0
+dependencies:
+- name: edge-stack
+  version: 7.2.0
+  repository:  https://app.getambassador.io
