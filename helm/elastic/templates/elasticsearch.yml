@@ -7,19 +7,20 @@ spec:
   http:
     tls: 
       selfSignedCertificate:
-        disabled: true
+        disabled: false
   nodeSets:
   - name: default
     count: 3
     config:
       xpack.security.authc.api_key.enabled: true
     podTemplate:
-      metadata:
-        annotations:
-          traffic.sidecar.istio.io/includeInboundPorts: "*"
-          traffic.sidecar.istio.io/excludeOutboundPorts: "9300" 
-          traffic.sidecar.istio.io/excludeInboundPorts: "9300"
       spec:  
+        initContainers:
+        - name: sysctl
+          securityContext:
+            privileged: true
+            runAsUser: 0
+          command: ['sh', '-c', 'sysctl -w vm.max_map_count=262144']
         securityContext:
           fsGroup: 1000
           runAsUser: 1000

@@ -1,6 +1,6 @@
 # Create Kubernetes Cluster
 resource "google_container_cluster" "kube_cluster" {
-  name                     = "hosted-challenges-cluster"
+  name                     = "k8s-cluster"
   initial_node_count       = 1
   remove_default_node_pool = true
   network                  = google_compute_network.vpc_network.id
@@ -60,8 +60,8 @@ resource "google_container_node_pool" "standard_pool" {
 }
 
 # Allow istio kubernetes api access
-resource "google_compute_firewall" "istio_kube_api" {
-  name          = "allow-istio-to-kubernetes"
+resource "google_compute_firewall" "ambassador_api" {
+  name          = "allow-ambassador-to-kubernetes"
   network       = google_compute_network.vpc_network.name
   direction     = "INGRESS"
   priority      = "1000"
@@ -70,7 +70,7 @@ resource "google_compute_firewall" "istio_kube_api" {
 
   allow {
     protocol = "tcp"
-    ports    = ["15017"]
+    ports    = ["8443"]
   }
 }
 

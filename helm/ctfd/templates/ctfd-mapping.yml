@@ -1,0 +1,8 @@
+apiVersion: getambassador.io/v3alpha1
+kind:  Mapping
+metadata:
+  name:  ctfd
+spec:
+  hostname: fuck.loopset.net
+  prefix: /
+  service: ctfd:8000

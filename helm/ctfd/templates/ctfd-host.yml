@@ -1,0 +1,9 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Host
+metadata:
+  name: ctfd
+spec:
+  hostname: fuck.loopset.net
+  acmeProvider:
+    authority: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: kyle@doucettes.ca

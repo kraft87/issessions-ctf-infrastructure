@@ -1,5 +1,2 @@
 eck-operator:
-  podAnnotations:
-    traffic.sidecar.istio.io/excludeInboundPorts: "9443"
-    traffic.sidecar.istio.io/includeInboundPorts: '*'
   installCRDs: false

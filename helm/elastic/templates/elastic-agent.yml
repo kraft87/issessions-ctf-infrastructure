@@ -1,0 +1,18 @@
+apiVersion: agent.k8s.elastic.co/v1alpha1
+kind: Agent
+metadata:
+  name: elastic-agent
+spec:
+  version: 7.16.3
+  kibanaRef:
+    name: elastic
+  fleetServerRef:
+    name: fleet-server
+  mode: fleet
+  daemonSet:
+    podTemplate:
+      spec:
+        serviceAccountName: elastic-agent
+        automountServiceAccountToken: true
+        securityContext:
+          runAsUser: 0

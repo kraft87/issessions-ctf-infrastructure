@@ -1,6 +1,0 @@
-dependencies:
-- name: wg-access-server
-  repository: https://place1.github.io/wg-access-server
-  version: v0.4.6
-digest: sha256:b5b5d53e31f523a1c75bcb759d072b75c7f014f8dfd49ff7625b2302be5623ea
-generated: "2022-01-18T23:11:07.4291582-05:00"

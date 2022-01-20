@@ -1,7 +1,0 @@
-apiVersion: v2
-name: wg
-version: 0.1.0
-dependencies:
-- name: wg-access-server
-  version: v0.4.6
-  repository: https://place1.github.io/wg-access-server
