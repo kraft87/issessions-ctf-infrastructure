@@ -16,15 +16,8 @@ The annual CTF was historically a small in-person event for a single college's c
 
 Terraform · Kubernetes (GKE for production, MicroK8s for the homelab cluster) · Helm · Ansible · Docker · Google Cloud Platform · VMware vSphere · Elastic Stack (self-hosted on Kubernetes and SaaS) · WireGuard · Python · LDAP · GitHub Actions
 
-## Recommendation
-
-Nick Johnston, my program coordinator at Sheridan and now Security Operations and Anti-Abuse Manager at Aiven.io, captured the impact in a recommendation letter:
-
-> Without his independence and drive to learn, the contest would very likely continue to be constrained to small local events, and not the country-spanning success it has now become.
 
 ## Caveat
 
 A data-loss incident during the project cost roughly six weeks of commits, so this repo represents an earlier iteration rather than the final shipping version of the infrastructure. (This was 2022, so for once I can't blame the gap on a hallucinating AI.)
-
-The committed WireGuard private key and a couple of placeholder credentials that were in the original repo have been scrubbed from history before publication. The 2022 deployment is long torn down, so the operational impact is nil; the scrub is purely so the published repo doesn't set off a hiring manager's scanners.
 
