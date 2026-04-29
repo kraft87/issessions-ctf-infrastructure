@@ -10,7 +10,7 @@ The annual CTF was historically a small in-person event for a single college's c
 - **Kubernetes-based architecture on GKE.** Consolidated the compute footprint into a single cluster, removing standalone compute instances. Helm charts for repeatable deployment of contest services (CTFd, Elastic Stack, Ambassador edge stack, Redis, WireGuard access server).
 - **Homelab mirror on VMware vSphere with MicroK8s.** Used as a staging environment to validate Terraform and Helm changes before promoting them to GCP. Same Helm charts, same Terraform modules, different target.
 - **Self-hosted Elastic Stack via Helm** for contest telemetry and event monitoring, plus a parallel Elastic Cloud SaaS deployment for comparison.
-- **Pseudo CI/CD pipeline for contest challenges** (in the [`issessions/ISSessionsCTF2022`](https://github.com/issessions/ISSessionsCTF2022) repo). PR-triggered GitHub Actions workflow that built challenge manifests, built and pushed Docker images to `gcr.io/issessions`, uploaded challenges to CTFd via API, and provisioned per-team accounts in both CTFd and Elastic Stack with credential emails to participants.
+- **CI/CD pipeline for contest challenges** (in the [`issessions/ISSessionsCTF2022`](https://github.com/issessions/ISSessionsCTF2022) repo). PR-triggered GitHub Actions workflow that built challenge manifests, built and pushed Docker images to `gcr.io/issessions`, uploaded challenges to CTFd via API, and provisioned per-team accounts in both CTFd and Elastic Stack with credential emails to participants.
 
 ## Tech stack
 
