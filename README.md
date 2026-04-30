@@ -2,7 +2,9 @@
 
 Cloud infrastructure I built and operated as the cloud infrastructure engineer for the [ISSessions Cybersecurity Club](https://github.com/issessions) Capture-The-Flag event at Sheridan College, 2021-2022.
 
-The annual CTF was historically a small in-person event for a single college's cybersecurity club. I rebuilt the contest infrastructure to scale from a local event to a country-spanning one, supporting a record 167 participants in its first cloud-native year.
+The annual CTF had historically been a small in-person event for a single college's cybersecurity club. The 2021 edition moved to the cloud out of COVID necessity, but on ad-hoc infrastructure that had not been codified.
+
+As cloud infrastructure engineer for the 2022 edition, I started by Terraforming the inherited deployment and then redesigned it from the ground up. The contest scaled to country-spanning with a record 167 participants while infrastructure cost dropped roughly 71% versus the prior year's always-on cloud deployment.
 
 ## What I built
 
